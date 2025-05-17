@@ -3,14 +3,15 @@
 # **`levenshtein.js`**
 This is **under development**..
 
-Actually, I already got the code. I just need to prepare it to run 'as is',
-without my Library extensions. When it's done, I'm going to publish it here.
+Actually, I already got the [code](src/levenshtein.TODO.js). There's only my
+own `(Array).sort()` function missing yet. So I'll implement here some
+alternative (easier) version for it.
 
 <br>
 
 ## Description
-**TODO**. At the moment you can only look into the [code](src/levenshtein.TODO.js)
-if you want to know more.
+**TODO**. Here comes some more description of my [code](src/levenshtein.TODO.js)
+and the algorithm in general.
 
 <br><br>
 

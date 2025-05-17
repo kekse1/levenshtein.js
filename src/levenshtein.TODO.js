@@ -3,19 +3,23 @@
 * https://kekse.biz/ https://github.com/kekse1/levenshtein.js/
 */
 
+/*
+ * TODO * is prepared, now my original '.sort()' is missing yet!
+ */
+
 //
 const DEFAULT_CASE_SENSITIVE = false;
 const DEFAULT_WITH_DISTANCES = true;
 const DEFAULT_DISTANCE = 'matrix';
 
 //
-const levenshtein = global.levenshtein = (_word, ... _compare) => {
+const levenshtein = (_word, ... _compare) => {
 	var caseSensitive = DEFAULT_CASE_SENSITIVE; var withDistances = DEFAULT_WITH_DISTANCES;
-	if(typeof _word !== 'string') return error('Invalid % argument (not a %)', null, '_word', 'String');
+	if(typeof _word !== 'string') throw new Error('Invalid _word argument (not a String)');
 	for(var i = 0; i < _compare.length; ++i) if(typeof _compare[i] === 'boolean') caseSensitive = _compare.splice(i--, 1)[0];
-		else if(_compare[i] === null) { withDistances = !DEFAULT_WITH_DISTANCES; _compare.splice(i--, 1); }
+		else if(_compare[i] === null) { withDistances = !withDistances; _compare.splice(i--, 1); }
 		else if(typeof _compare[i] !== 'string') _compare.splice(i--, 1);
-	if(_compare.length === 0) return []; else _compare = _compare.unique();
+	if(_compare.length === 0) return []; _compare = [ ... new Set(_compare) ];
 	const result = new Array(_compare.length); for(var i = 0; i < _compare.length; ++i)
 		if(_word.length === 0) result[i] = [ _compare[i], _compare[i].length ];
 		else result[i] = [ _compare[i], levenshtein.distance(_word, _compare[i], caseSensitive) ];
@@ -23,13 +27,13 @@ const levenshtein = global.levenshtein = (_word, ... _compare) => {
 		result[i] = result[i][0]; return result; };
 
 levenshtein.distance = (_a, _b, _case_sensitive = DEFAULT_CASE_SENSITIVE, _algorithm = DEFAULT_DISTANCE) => {
-	if(typeof _a !== 'string' || typeof _b !== 'string') {console.table(_a);console.table(_b);
-		return error('Invalid argument(s) (no %s)', null, 'String');}
+	if(typeof _a !== 'string' || typeof _b !== 'string')
+		throw new Error('Invalid argument(s) (not String(s))');
 	else if(!_case_sensitive) { _a = _a.toLowerCase(); _b = _b.toLowerCase(); }
 	if(_a.length === 0) return _b.length;
 	else if(_b.length === 0) return _a.length;
 	else if(typeof levenshtein.distance[_algorithm] !== 'function')
-		return error('Invalid % argument (no such distance %)', null, '_algorithm', 'Function');
+		throw new Error('Invalid _algorithm argument (no such distance function)');
 	return levenshtein.distance[_algorithm](_a, _b); };
 
 levenshtein.distance.matrix = (_a, _b) => {
