@@ -1,11 +1,8 @@
 /*
 * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 * https://kekse.biz/ https://github.com/kekse1/levenshtein.js/
+* v2.0.0
 */
-
-/*
- * TODO * is prepared, now my original '.sort()' is missing yet!
- */
 
 //
 const DEFAULT_CASE_SENSITIVE = false;
@@ -23,7 +20,7 @@ const levenshtein = (_word, ... _compare) => {
 	const result = new Array(_compare.length); for(var i = 0; i < _compare.length; ++i)
 		if(_word.length === 0) result[i] = [ _compare[i], _compare[i].length ];
 		else result[i] = [ _compare[i], levenshtein.distance(_word, _compare[i], caseSensitive) ];
-	result.sort(1, true); if(!withDistances) for(var i = 0; i < result.length; ++i)
+	result.sort((_a, _b) => (_a[1] - _b[1])); if(!withDistances) for(var i = 0; i < result.length; ++i)
 		result[i] = result[i][0]; return result; };
 
 levenshtein.distance = (_a, _b, _case_sensitive = DEFAULT_CASE_SENSITIVE, _algorithm = DEFAULT_DISTANCE) => {
