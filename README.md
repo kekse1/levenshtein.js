@@ -39,6 +39,8 @@ the distance between two words, and one main function to be called with many wor
 ## Download
 * \[**2025-05-18**\] [`levenshtein.js`](src/levenshtein.js) (v**2.0.0**, c.a..);
 
+<br>
+
 ## Configuration
 Not that much.. only three `const` on top of the file for the default settings, which
 can be changed on any call by the arguments (in any order).
