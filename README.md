@@ -31,8 +31,8 @@ how it really works. And to be honest, even today I'm not totally sure.. but it 
 ## Usage
 You should know how it works when you see it.
 
-It's really not big. I just give you the tip that there's one function to calculate the
-distance between two words, and one main function to be called with many words to check.
+It's really not a big thing. I just give you the tip that there's one function to calculate
+the distance between two words, and one main function to be called with many words to check.
 
 <br>
 
