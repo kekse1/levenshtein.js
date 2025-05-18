@@ -11,7 +11,8 @@ This algorithm calculates the 'distance' between words. It's often used to give 
 possible alternative words/commands/.. etc. if one typed in a 'wrong' command, e.g.
 
 So when someone typed in a wrong command, he can see the probabilities
-for other available words/commands/..
+for other available words/commands/.. for this, the result will be sorted
+by the distances (ascending).
 
 <br>
 
