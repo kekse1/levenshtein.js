@@ -57,10 +57,12 @@ I never really needed it, but as far as I know it's possible to extend it by wei
 so, based on the distance of the symbols on a keyboard. I just wanted you to know this,
 but it's not implemented here.
 
-<br><br>
+<br><br><br>
 
 # Contact
 <img src="https://kekse.biz/github.php?override=github:levenshtein.js&draw&text=levenshtein.js@kekse.biz&angle=6&size=38pt&fg=150,20,90&font=OpenSans&ro&readonly&h=64&v=16" />
+
+<br>
 
 # Copyright and License
 The Copyright is [(c) Sebastian Kucharczyk](COPYRIGHT.txt),
